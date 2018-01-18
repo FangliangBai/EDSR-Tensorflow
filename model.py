@@ -41,7 +41,7 @@ class EDSR(object):
 
 		#One convolution before res blocks and to convert to required feature depth
 		x = slim.conv2d(image_input,feature_size,[3,3])
-	
+
 		#Store the output of the first convolution to add later
 		conv_1 = x	
 
@@ -86,7 +86,7 @@ class EDSR(object):
 		#One more convolution, and then we add the output of our first conv layer
 		x = slim.conv2d(x,feature_size,[3,3])
 		x += conv_1
-		
+
 		#Upsample output of the convolution		
 		x = utils.upsample(x,scale,feature_size,None)
 
